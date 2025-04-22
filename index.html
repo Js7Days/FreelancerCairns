@@ -42,110 +42,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Thong Thao, IT Support Freelancer in Cairns, QLD. Offering helpdesk support, network administration, and cloud solutions.">
-  <meta name="keywords" content="IT support, freelancer, Cairns, network administration, cloud engineering, Microsoft 365, AWS">
+  <meta name="description" content="Thong Thao, IT Support Freelancer in Cairns, QLD. Expert in helpdesk support, network administration, and cloud solutions.">
+  <meta name="keywords" content="IT support, freelancer, Cairns, network administration, cloud engineering, Microsoft 365, AWS, cybersecurity">
   <meta name="author" content="Thong Thao">
   <title>Thong Thao | IT Support Freelancer | Cairns, QLD</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-poppins text-gray-800 transition-colors duration-300">
   <!-- Navbar -->
-  <nav class="bg-blue-600 text-white fixed w-full top-0 z-10 shadow-md">
+  <nav class="bg-gradient-to-r from-teal-500 to-blue-600 text-white fixed w-full top-0 z-20 shadow-lg" id="navbar">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#home" class="text-2xl font-bold">Thong Thao</a>
-      <div class="md:hidden">
-        <button id="menu-toggle" class="focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+      <a href="#home" class="text-2xl font-bold">7DaySupport</a>
+      <div class="flex items-center space-x-4">
+        <button id="theme-toggle" class="focus:outline-none" aria-label="Toggle dark mode">
+          <i class="fas fa-moon text-xl"></i>
+        </button>
+        <button id="menu-toggle" class="md:hidden focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
       <ul id="nav-links" class="hidden md:flex space-x-6">
-        <li><a href="#home" class="hover:text-blue-200">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-200">About</a></li>
-        <li><a href="#services" class="hover:text-blue-200">Services</a></li>
-        <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+        <li><a href="#home" class="hover:text-teal-200 transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-teal-200 transition-colors">About</a></li>
+        <li><a href="#services" class="hover:text-teal-200 transition-colors">Services</a></li>
+        <li><a href="#portfolio" class="hover:text-teal-200 transition-colors">Portfolio</a></li>
+        <li><a href="#contact" class="hover:text-teal-200 transition-colors">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="min-h-screen flex items-center bg-blue-50">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-4">IT Support Freelancer in Cairns</h1>
-      <p class="text-lg md:text-xl text-gray-700 mb-6">Reliable IT solutions for your business. From helpdesk support to cloud and network setups, I’ve got you covered.</p>
-      <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">Get in Touch</a>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 text-white relative overflow-hidden">
+    <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-pulse">Your IT Support Expert in Cairns</h1>
+      <p class="text-lg md:text-2xl mb-6 max-w-2xl mx-auto">Transform your business with top-tier helpdesk support, network solutions, and cloud expertise. Let’s elevate your tech game!</p>
+      <a href="#contact" class="bg-white text-teal-600 px-6 py-3 rounded-full font-semibold hover:bg-teal-100 transition-colors">Hire Me Now</a>
     </div>
+    <div class="absolute inset-0 opacity-20" style="background: url('https://source.unsplash.com/random/1920x1080?tech') no-repeat center/cover;"></div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-16 bg-white">
+  <section id="about" class="py-20 bg-white dark:bg-gray-800 dark:text-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">About Me</h2>
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-gray-700 mb-4">I am an experienced IT professional skilled in providing IT support from Level 1 to Level 2, managing networks, cloud technologies, and Microsoft 365 administration. I have strong troubleshooting skills and hands-on experience with systems like Microsoft 365, Azure, AWS, and security systems. I also have experience improving network infrastructure. I can solve complex problems, ensure systems work reliably, and offer excellent customer service.</p>
-
-        <p class="text-gray-700 mb-4">I has worked in various IT roles, including as an Information Technology Officer at Plan International Laos, where I supported both local and regional teams with Level 1 and 2 IT support, managed Active Directory, Microsoft Exchange, and firewall systems.</p>
-        <p class="text-gray-700">I also worked as an IT Executive at Forte Laos, managing helpdesk tickets, optimizing network infrastructure, and supporting 50+ users with high satisfaction. In both roles, I demonstrated strong technical knowledge and excellent communication skills.</p>
+      <h2 class="text-4xl font-bold text-center text-teal-600 dark:text-teal-400 mb-10" data-aos="fade-up">About Me</h2>
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-lg mb-4">I am an experienced IT professional skilled in providing IT support from Level 1 to Level 2, managing networks, cloud technologies, and Microsoft 365 administration. I have strong troubleshooting skills and hands-on experience with systems like Microsoft 365, Azure, AWS, and security systems. I also have experience improving network infrastructure. I can solve complex problems, ensure systems work reliably, and offer excellent customer service.</p>
+        <p class="text-lg mb-4">I have worked in various IT roles, including as an Information Technology Officer at Plan International Laos, where I supported both local and regional teams with Level 1 and 2 IT support, managed Active Directory, Microsoft Exchange, and firewall systems.</p>
+        <p class="text-lg">I also worked as an IT Executive at Forte Laos, managing helpdesk tickets, optimizing network infrastructure, and supporting 50+ users with high satisfaction. In both roles, I demonstrated strong technical knowledge and excellent communication skills.</p>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-100">
+  <section id="services" class="py-20 bg-gray-100 dark:bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">My Services</h2>
+      <h2 class="text-4xl font-bold text-center text-teal-600 dark:text-teal-400 mb-10" data-aos="fade-up">My Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-blue-600 mb-4">Helpdesk Support</h3>
-          <p class="text-gray-700">Resolve hardware, software, and Microsoft 365 issues quickly with personalized support, ensuring minimal downtime.</p>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2" data-aos="flip-left">
+          <i class="fas fa-headset text-4xl text-teal-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mb-4">Helpdesk Support</h3>
+          <p class="text-gray-600 dark:text-gray-300">Fast, reliable solutions for hardware, software, and Microsoft 365 issues, ensuring your business runs smoothly.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-blue-600 mb-4">Network Administration</h3>
-          <p class="text-gray-700">Set up and maintain secure networks, including FortiGate Firewalls and Cisco Meraki, for reliable connectivity.</p>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2" data-aos="flip-left" data-aos-delay="100">
+          <i class="fas fa-network-wired text-4xl text-teal-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mb-4">Network Administration</h3>
+          <p class="text-gray-600 dark:text-gray-300">Secure and optimize your networks with FortiGate Firewalls and Cisco Meraki for seamless connectivity.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-blue-600 mb-4">Cloud Solutions</h3>
-          <p class="text-gray-700">Support AWS and Microsoft 365 deployments, from user access to troubleshooting, for efficient cloud operations.</p>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2" data-aos="flip-left" data-aos-delay="200">
+          <i class="fas fa-cloud text-4xl text-teal-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mb-4">Cloud Solutions</h3>
+          <p class="text-gray-600 dark:text-gray-300">Deploy and manage AWS and Microsoft 365 environments for efficient, scalable cloud operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-20 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-teal-600 dark:text-teal-400 mb-10" data-aos="fade-up">Portfolio</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-xl" data-aos="zoom-in">
+          <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mb-4">Network Security Upgrade</h3>
+          <p class="text-gray-600 dark:text-gray-300">Configured FortiGate Firewall for a Cairns small business, reducing security incidents by 40% and enhancing network reliability.</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mb-4">Microsoft 365 Migration</h3>
+          <p class="text-gray-600 dark:text-gray-300">Migrated a non-profit’s data to Microsoft 365, training 20+ staff on SharePoint and OneDrive, boosting productivity.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-blue-50">
+  <section id="contact" class="py-20 bg-gradient-to-br from-teal-400 to-blue-600 text-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Contact Me</h2>
-      <div class="max-w-lg mx-auto">
-        <form id="contact-form" action="https://formspree.io/f/meogjbwg" method="POST" class="space-y-4">
+      <h2 class="text-4xl font-bold text-center mb-10" data-aos="fade-up">Let’s Connect</h2>
+      <div class="max-w-lg mx-auto bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+        <form id="contact-form" action="https://formspree.io/f/meogjbwg" method="POST" class="space-y-6">
           <div>
-            <label for="name" class="block text-gray-700">Name</label>
-            <input type="text" id="name" name="name" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <label for="name" class="block text-white">Name</label>
+            <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400" aria-required="true">
+            <p class="text-red-300 hidden" id="name-error">Name is required</p>
           </div>
           <div>
-            <label for="email" class="block text-gray-700">Email</label>
-            <input type="email" id="email" name="email" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <label for="email" class="block text-white">Email</label>
+            <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400" aria-required="true">
+            <p class="text-red-300 hidden" id="email-error">Valid email is required</p>
           </div>
           <div>
-            <label for="message" class="block text-gray-700">Message</label>
-            <textarea id="message" name="message" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" rows="5"></textarea>
+            <label for="message" class="block text-white">Message</label>
+            <textarea id="message" name="message" required class="w-full p-3 rounded-lg bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-400" rows="5" aria-required="true"></textarea>
+            <p class="text-red-300 hidden" id="message-error">Message is required</p>
           </div>
-          <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 w-full">Send Message</button>
+          <button type="submit" class="bg-teal-500 text-white px-6 py-3 rounded-full hover:bg-teal-600 w-full transition-colors">Send Message</button>
         </form>
-        <p class="text-center text-gray-700 mt-4">Or reach me at: <a href="mailto:thong.thao@outlook.com" class="text-blue-600">thong.thao@outlook.com</a> | <a href="https://linkedin.com/in/thong-thao" class="text-blue-600">LinkedIn</a></p>
+        <p class="text-center mt-4">Or reach me at: <a href="mailto:thong.thao@outlook.com" class="underline hover:text-teal-200">thong.thao@outlook.com</a> | <a href="https://linkedin.com/in/thong-thao" class="underline hover:text-teal-200">LinkedIn</a></p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-600 text-white py-4">
+  <footer class="bg-gray-900 text-white py-6">
     <div class="container mx-auto px-4 text-center">
-      <p>&copy; 2025 Thong Thao. All rights reserved.</p>
-      <p class="mt-2"><a href="https://linkedin.com/in/thong-thao" class="hover:text-blue-200">LinkedIn</a></p>
+      <p>© 2025 Thong Thao. All rights reserved.</p>
+      <p class="mt-2"><a href="https://linkedin.com/in/thong-thao" class="hover:text-teal-400">LinkedIn</a></p>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,150 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thong Thao, IT Support Freelancer in Cairns, QLD. Offering helpdesk support, network administration, and cloud solutions.">
+  <meta name="keywords" content="IT support, freelancer, Cairns, network administration, cloud engineering, Microsoft 365, AWS">
+  <meta name="author" content="Thong Thao">
+  <title>Thong Thao | IT Support Freelancer | Cairns, QLD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="bg-blue-600 text-white fixed w-full top-0 z-10 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold">Thong Thao</a>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <ul id="nav-links" class="hidden md:flex space-x-6">
+        <li><a href="#home" class="hover:text-blue-200">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-200">About</a></li>
+        <li><a href="#services" class="hover:text-blue-200">Services</a></li>
+        <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="min-h-screen flex items-center bg-blue-50">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-4">IT Support Freelancer in Cairns</h1>
+      <p class="text-lg md:text-xl text-gray-700 mb-6">Reliable IT solutions for your business. From helpdesk support to cloud and network setups, I’ve got you covered.</p>
+      <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">About Me</h2>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-gray-700 mb-4">I am an experienced IT professional skilled in providing IT support from Level 1 to Level 2, managing networks, cloud technologies, and Microsoft 365 administration. I have strong troubleshooting skills and hands-on experience with systems like Microsoft 365, Azure, AWS, and security systems. I also have experience improving network infrastructure. I can solve complex problems, ensure systems work reliably, and offer excellent customer service.</p>
+        <p class="text-gray-700 mb-4">I has worked in various IT roles, including as an Information Technology Officer at Plan International Laos, where I supported both local and regional teams with Level 1 and 2 IT support, managed Active Directory, Microsoft Exchange, and firewall systems.</p>
+        <p class="text-gray-700">I also worked as an IT Executive at Forte Laos, managing helpdesk tickets, optimizing network infrastructure, and supporting 50+ users with high satisfaction. In both roles, I demonstrated strong technical knowledge and excellent communication skills.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">My Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Helpdesk Support</h3>
+          <p class="text-gray-700">Resolve hardware, software, and Microsoft 365 issues quickly with personalized support, ensuring minimal downtime.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Network Administration</h3>
+          <p class="text-gray-700">Set up and maintain secure networks, including FortiGate Firewalls and Cisco Meraki, for reliable connectivity.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Cloud Solutions</h3>
+          <p class="text-gray-700">Support AWS and Microsoft 365 deployments, from user access to troubleshooting, for efficient cloud operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-blue-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Contact Me</h2>
+      <div class="max-w-lg mx-auto">
+        <form id="contact-form" action="https://formspree.io/f/meogjbwg" method="POST" class="space-y-4">
+          <div>
+            <label for="name" class="block text-gray-700">Name</label>
+            <input type="text" id="name" name="name" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700">Email</label>
+            <input type="email" id="email" name="email" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700">Message</label>
+            <textarea id="message" name="message" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" rows="5"></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 w-full">Send Message</button>
+        </form>
+        <p class="text-center text-gray-700 mt-4">Or reach me at: <a href="mailto:thong.thao@outlook.com" class="text-blue-600">thong.thao@outlook.com</a> | <a href="https://linkedin.com/in/thong-thao" class="text-blue-600">LinkedIn</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Thong Thao. All rights reserved.</p>
+      <p class="mt-2"><a href="https://linkedin.com/in/thong-thao" class="hover:text-blue-200">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

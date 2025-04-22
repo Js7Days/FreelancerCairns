@@ -1,6 +1,25 @@
-/* Custom styles to complement Tailwind CSS */
+/* Custom styles for modern design */
+@font-face {
+  font-family: 'Poppins';
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+body.dark {
+  background-color: #1f2937;
+  color: #f3f4f6;
+}
+
 nav {
   transition: all 0.3s ease;
+}
+
+/* Navbar mobile menu */
+#nav-links {
+  display: none; /* Ensure hidden by default, overriding Tailwind */
 }
 
 #nav-links.active {
@@ -10,23 +29,64 @@ nav {
   top: 64px;
   left: 0;
   width: 100%;
-  background: #2563eb;
-  padding: 1rem;
+  background: linear-gradient(to right, #14b8a6, #2563eb);
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Ensure menu appears above other content */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 #nav-links.active li {
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
+}
+
+#nav-links.active a {
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  display: block;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+#nav-links.active a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Desktop menu */
+@media (min-width: 768px) {
+  #nav-links {
+    display: flex;
+  }
+  #menu-toggle {
+    display: none;
+  }
 }
 
 section {
   scroll-margin-top: 80px;
 }
 
-@media (min-width: 768px) {
-  #nav-links {
-    display: flex !important;
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
   }
-  #menu-toggle {
-    display: none;
+  50% {
+    opacity: 0.7;
   }
 }
